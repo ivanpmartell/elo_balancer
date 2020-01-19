@@ -20,12 +20,13 @@ def closer_to(target, v1, v2, v3, v4):
     return False
 
 players = {}
-for x in range(1,51):
+numPlayers = 50
+for x in range(numPlayers):
     name = "p" + str(x)
     pvalue = random.randint(400,2000)
     players.update({name: pvalue})
 
-targetSum = sum(players.values())/(5*2)
+targetSum = sum(players.values())/(numPlayers/5)
 print("target: " + str(targetSum))
 
 teams = splitDict(players)
@@ -36,7 +37,7 @@ for team in teams:
     sortedTeams.append(sortedTeam)
 
 #optimization
-maxsteps = 10000
+maxsteps = 20000
 for step in range(maxsteps):
     r = random.randint(0,len(sortedTeams) - 1)
     currentTeam = sortedTeams[r]
